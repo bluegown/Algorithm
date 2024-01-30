@@ -1,0 +1,31 @@
+import sys
+# sys.stdin.readline()
+import heapq
+import copy
+import itertools
+from itertools import combinations
+from itertools import permutations
+from collections import deque
+sys.setrecursionlimit(100000000)
+INF = 1e9
+
+s = list(input())
+zerocount = 0 
+onecount = 0
+if s[0] == '0':
+    zerocount +=1
+else:
+    onecount +=1
+for i in range(len(s)-1):
+    if int(s[i])!= int(s[i+1]):
+        if int(s[i+1]) == 1:
+            onecount +=1
+        else:
+            zerocount +=1
+
+print(min(zerocount,onecount))
+
+
+    
+
+
