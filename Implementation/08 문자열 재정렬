@@ -9,19 +9,17 @@ from collections import deque
 sys.setrecursionlimit(100000000)
 INF = 1e9
 
-
-
-
-
-
-    
-
-
-
-
-         
-
-
+S = input()
+arr = []
+sum = 0
+for i in S:
+    if i>='A' and i<='Z':
+        arr.append(i)
+    else:
+        sum += int(i)
+arr.sort()
+arr.append(str(sum))
+print(''.join(arr))
 
     
 
