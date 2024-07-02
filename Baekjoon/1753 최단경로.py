@@ -4,17 +4,18 @@ import heapq
 INF = 1e9
 
 def djikstra(graph,start):
-    distance[start] = 0
+    
     q = []
-    heapq.heappush(q,(0,start)) # 0은 비용 start== node number
+    distance[start] = 0
+    heapq.heappush(q,(0,start))
     while q:
-        dist,now = heapq.heappop(q)
-        if distance[now] < dist: # 이미 처리된적 있는 노드
+        dist,now = heapq.popleft(q)
+        if distance[now] < dist:
             continue
         for i in graph[now]:
             cost = dist + i[1]
             if cost < distance[i[0]]:
-                distance[i[0]] = cost
+                cost = distance[i[0]]
                 heapq.heappush(q,(cost,i[0]))
 
 
