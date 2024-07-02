@@ -7,6 +7,8 @@ def bfs(graph):
     dy = [0,1,0,-1]
     while queue:
         x,y = queue.popleft()
+        if x == N-1 and y == M-1:
+            return graph[x][y] # 만약 최초로 발견되면 바로 Return해주는 방식으로 처리한다
         for i in range(4):
             nx = x + dx[i]
             ny = y + dy[i]
@@ -15,7 +17,7 @@ def bfs(graph):
             if graph[nx][ny] == 1:
              graph[nx][ny] = graph[x][y] + 1
              queue.append((nx,ny))
-    return graph[N-1][M-1]
+
 N,M = map(int,sys.stdin.readline().split())
 
 graph = []
