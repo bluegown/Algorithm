@@ -1,13 +1,8 @@
-import sys
-N,K = map(int,sys.stdin.readline().split())
-arr = []
-string = ''
-for i in range(N):
-    value = input()
-    arr.append(value)
-print(arr)
-for i in range(N):
-    string = string+ str(arr[i])
-number = K % len(string)
+# 1 ~ N 원형 나무가 존재
+# height >= M -> 벌목 count
 
-print(arr[number-1])
+
+# N x M 행렬 , 판다는 총 K마리
+# 불만족도의 최솟값인 칸을 선택한다
+
+# 

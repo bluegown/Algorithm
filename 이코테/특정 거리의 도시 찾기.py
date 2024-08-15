@@ -19,8 +19,6 @@ for i in range(M):
     graph[x].append(y) # x->y로 연결시켜준다
 
 distance =  [INF] * (N+1)
-g = [] * (3)
-print(g)
 bfs(graph,distance,X)
 disarr = []
 for i in range(len(distance)):
