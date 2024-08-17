@@ -29,7 +29,7 @@ sector_list=[]
 
 for tik in ticker_list:
     ticker=yf.Ticker(tik)
-    sector=ticker.info.get['sector']
+    sector=ticker.info.get['']
     sector_list.append(sector)
     
 print(sector_list)
