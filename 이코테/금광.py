@@ -17,7 +17,7 @@ for _ in range(T):
             break # 여기가 그래프 divide 하는 부분
 
     index = 0
-    for i in range(N):
+    for i in range(N): 
         value = graph[i][0] # 시작점 각각 다르게 해서 시작
         d[i][0] = value # 초기값 세팅해주고 시작
         for j in range(1,M):

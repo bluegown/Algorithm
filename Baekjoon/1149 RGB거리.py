@@ -1,28 +1,32 @@
 import sys
 
-N,M = map(int,sys.stdin.readline().split())
+N = int(input())
 
-lis = set()
-wat = set()
-
-for i in range(N):
-    name = input()
-    lis.add(name)
-ans = []
+arr = []
 
 for i in range(N):
-    name = input()
-    wat.add(name)
+    x = list(map(int,sys.stdin.readline().split()))
+    arr.append(x)
 
-for i in lis:
-    if i in wat: # O(1)으로 해서 괜찮음
-        ans.append(i)
+d = [[(1000*1000)+ 1 for _ in range(3)] for _ in range(N)]
 
-print(len(ans))
-ans.sort()
-for i in ans:
-    print(i)
-            
+# 원래 그래프는 arr !! 
+row = [0,1,2]
+for k in range(3):
+  start = arr[0][k] # 시작점 다르게 시작하고
+  d[0][k] = start 
+  for i in range(1,N): # i가 행이 될것.
+    for j in range(3):
+        if j == 0:# 포함되지 않는다면 
+         d[i][0] = min(d[i][0],d[i-1][1] + arr[i][0],d[i-1][2] + arr[i][0])
+        if j == 1:# 포함되지 않는다면 
+         d[i][1] = min(d[i][1],d[i-1][0] + arr[i][1],d[i-1][2] + arr[i][1])
+        if j == 2:# 포함되지 않는다면 
+         d[i][2] = min(d[i][2],d[i-1][0] + arr[i][2],d[i-1][1] + arr[i][2])
+
+
+print(d)
+
 
 
 
